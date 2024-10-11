@@ -213,10 +213,6 @@
 		font-weight: 600;
 		font-size: 1.125rem;
 		text-transform: uppercase;
-
-		@media screen and (max-width: 480px) {
-			font-size: 0.875rem;
-		}
 	}
 
 	&__body {
@@ -414,6 +410,9 @@
 
 	&__title {
 		color: #4a1d80;
+		@media screen and (max-width: 480px) {
+			font-size: 0.875rem;
+		}
 	}
 
 	&__body {
@@ -475,6 +474,7 @@
 
 		@media screen and (max-width: 992px) {
 			background-color: rgba(74, 29, 128, 1);
+			border-radius: 0 10px 10px 0;
 		}
 	}
 
