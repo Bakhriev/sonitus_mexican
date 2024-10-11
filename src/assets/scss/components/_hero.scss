@@ -1,4 +1,13 @@
 .hero {
+	background-image: url('../img/hero-bg.png');
+	background-position: center bottom;
+	background-size: cover 630px;
+	background-repeat: no-repeat;
+
+	@media screen and (max-width: 480px) {
+		background-image: url('../img/hero-bg-mob.png');
+		background-size: 800px 263px;
+	}
 	&__content {
 		padding-top: 40px;
 
@@ -89,6 +98,43 @@
 	}
 }
 
+.hero-cards {
+	position: relative;
+
+	padding-top: 140px;
+
+	@media screen and (max-width: 992px) {
+		padding-top: 40px;
+	}
+
+	&__card {
+		@media screen and (max-width: 992px) {
+			display: none;
+		}
+	}
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: flex-end;
+		gap: 16px;
+
+		@media screen and (max-width: 1200px) {
+			grid-template-columns: repeat(2, 1fr);
+			align-items: normal;
+		}
+
+		@media screen and (max-width: 768px) {
+			grid-template-columns: 1fr;
+		}
+
+		@media screen and (max-width: 480px) {
+			padding: 0;
+			gap: 0;
+		}
+	}
+}
+
 .search-btn {
 	display: flex;
 	align-items: center;
@@ -108,12 +154,12 @@
 	transition: background-color 150ms ease-in-out;
 
 	@include hover {
-		background-color: #cf78d6;
+		background-color: #633996;
 	}
 
 	&:active {
 		scale: 0.97;
-		background-color: #cf78d6;
+		background-color: #633996;
 	}
 }
 
@@ -132,6 +178,7 @@
 
 	color: #332462;
 	transition: background-color 150ms ease-in-out;
+	background-color: #fff;
 
 	@include hover {
 		background-color: rgba(0, 0, 0, 0.1);
@@ -140,5 +187,318 @@
 	&:active {
 		background-color: rgba(0, 0, 0, 0.1);
 		scale: 0.97;
+	}
+}
+
+.card {
+	padding-top: 20px;
+	padding-right: 40px;
+	padding-left: 40px;
+	padding-bottom: 24px;
+
+	border-radius: 20px 20px 0 0;
+
+	@media screen and (max-width: 992px) {
+		padding-right: 20px;
+		padding-left: 20px;
+		padding-bottom: 32px;
+	}
+
+	&__top {
+		padding: 12px 0;
+	}
+
+	&__title {
+		font-family: var(--second-family);
+		font-weight: 600;
+		font-size: 1.125rem;
+		text-transform: uppercase;
+
+		@media screen and (max-width: 480px) {
+			font-size: 0.875rem;
+		}
+	}
+
+	&__body {
+	}
+}
+
+.card-single {
+	border: 1px solid #fff;
+	background-color: rgba(255, 255, 255, 0.7);
+
+	&__top {
+		margin-bottom: 26px;
+
+		border-bottom: 1px solid #b122c2;
+	}
+
+	&__title {
+		color: #b122c2;
+	}
+
+	&__layout {
+		display: flex;
+		align-items: flex-start;
+		gap: 24px;
+	}
+
+	&__img {
+		width: 83px;
+		height: 134px;
+		object-fit: cover;
+		border-radius: 10px;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 24px;
+	}
+
+	&__text {
+		color: #111827;
+	}
+
+	&__link {
+		padding: 12px 30px;
+
+		font-family: var(--second-family);
+		font-weight: 500;
+		font-size: 0.875rem;
+		color: #fff;
+
+		border-radius: 8px;
+		background-color: #4a1d80;
+		transition: background-color 150ms ease-in-out;
+
+		@include hover {
+			color: #fff;
+			background-color: #633996;
+		}
+	}
+}
+
+.card-product {
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #fff;
+	background-color: #fff;
+
+	&__top {
+		margin-bottom: 24px;
+
+		border-bottom: 1px solid #257eff;
+	}
+
+	&__title {
+		color: #257eff;
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		@media screen and (max-width: 992px) {
+			gap: 8px;
+		}
+	}
+}
+
+.product {
+	display: flex;
+	gap: 22px;
+	align-items: center;
+
+	padding: 16px;
+
+	border: 1px solid #e0e6ee;
+	border-radius: 20px;
+	background-color: #fff;
+
+	@media screen and (max-width: 992px) {
+		gap: 16px;
+	}
+
+	&__img {
+		width: 62px;
+		height: 62px;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	&__info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	&__title {
+		font-weight: 500;
+		color: #111827;
+		@media screen and (max-width: 480px) {
+			font-size: 0.875rem;
+		}
+	}
+
+	&__price {
+		font-weight: 700;
+		color: #111827;
+	}
+
+	&__categories {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		flex-wrap: wrap;
+		& > * {
+			min-width: fit-content;
+		}
+	}
+}
+
+.category {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	padding: 4px 16px;
+
+	font-weight: 500;
+	font-size: 0.75rem;
+	line-height: 140%;
+
+	&--blue {
+		color: #257eff;
+		border-color: #257eff;
+		background-color: #dcecff;
+	}
+
+	&--yellow {
+		color: #f6990d;
+		border-color: #f6990d;
+		background-color: #fff1dd;
+	}
+}
+
+.card-link {
+	padding-bottom: 16px;
+
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #fff;
+
+	background-color: rgba(255, 255, 255, 0.7);
+
+	@media screen and (max-width: 480px) {
+		border-right: none;
+		border-left: none;
+
+		border-color: transparent;
+		border-radius: 0;
+	}
+
+	&__top {
+		margin-bottom: 16px;
+
+		border-bottom: 1px solid #4a1d80;
+	}
+
+	&__title {
+		color: #4a1d80;
+	}
+
+	&__body {
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+}
+
+.product-link {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	padding-left: 40px;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 16px;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+	}
+
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.6);
+
+	@media screen and (max-width: 992px) {
+		background-color: #fff;
+	}
+
+	font-weight: 500;
+	font-size: 0.875rem;
+	color: #111827;
+	text-decoration: none;
+
+	transition:
+		background-color 200ms ease-in-out,
+		color 200ms ease-in-out;
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 48px;
+		width: 80px;
+		background-color: rgba(74, 29, 128, 0.6);
+		border-radius: 10px;
+
+		transition: background-color 200ms ease-in-out;
+
+		@media screen and (max-width: 992px) {
+			background-color: rgba(74, 29, 128, 1);
+		}
+	}
+
+	@include hover {
+		background-color: #fff;
+
+		.product-link__icon {
+			background-color: rgba(74, 29, 128, 1);
+		}
+	}
+}
+
+.product-link--green {
+	&::before {
+		background-color: #0dbca5;
+	}
+}
+.product-link--yellow {
+	&::before {
+		background-color: #f6980c;
+	}
+}
+.product-link--purple {
+	&::before {
+		background-color: #b122c2;
 	}
 }
