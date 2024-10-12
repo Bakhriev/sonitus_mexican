@@ -1,6 +1,10 @@
 .header {
 	padding: 48px 0;
 
+	&--white {
+		background-color: #fff;
+	}
+
 	@media screen and (max-width: 992px) {
 		padding: 20px 0;
 	}
