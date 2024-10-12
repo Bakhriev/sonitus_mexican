@@ -787,6 +787,52 @@
 				</section>
 				<!--  -->
 			</main>
+
+			<div class="search-modal" data-modal="search-modal">
+				<div class="search-modal__inner">
+					<button class="search-modal__close btn-reset" data-destroyer>
+						<svg
+							width="14"
+							height="12"
+							viewBox="0 0 14 12"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M10.7671 12L6.30137 6.51765L0.630137 0H3.86301L7.94521 5.01177L14 12H10.7671ZM6.49315 5.01177L10.6575 0H13.7808L7.91781 6.68235L6.49315 5.01177ZM7.64384 6.75294L3.15069 12H0L6.27397 5.03529L7.64384 6.75294Z"
+								fill="white" />
+						</svg>
+					</button>
+
+					<div class="search-wrapper">
+						<form action="#" class="search-form">
+							<input
+								type="text"
+								class="search-form__input input-reset"
+								placeholder="Search by product name..." />
+
+							<button type="submit" class="search-form__submit btn-reset">
+								<svg width="26" height="26">
+									<use href="./assets/img/svg/sprite.svg#search"></use>
+								</svg>
+							</button>
+						</form>
+
+						<div class="most-search">
+							<div class="most-search__top">
+								<div class="most-search__title">Most common searchs</div>
+							</div>
+							<div class="most-search__links">
+								<a href="#" class="most-search__link">Novolog</a>
+								<a href="#" class="most-search__link">Novolog</a>
+								<a href="#" class="most-search__link">Novolog</a>
+								<a href="#" class="most-search__link">Novolog</a>
+								<a href="#" class="most-search__link">Novolog</a>
+								<a href="#" class="most-search__link">Novolog</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!--  -->
 			@include('./assets/components/footer.html')
 		</div>

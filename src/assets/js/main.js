@@ -44,3 +44,50 @@ const swiper = new Swiper('.swiper', {
 		prevEl: '.slider-buttons__prev',
 	},
 });
+
+const overlay = document.querySelector('.overlay');
+const body = document.body;
+
+function modal(modalSelector, triggersSelector) {
+	const modal = document.querySelector(modalSelector);
+	const triggers = document.querySelectorAll(triggersSelector);
+	const destroyers = modal?.querySelectorAll('[data-destroyer]');
+
+	let isModalActive = false;
+
+	if (!modal | !triggers.length | !destroyers) return;
+
+	function show() {
+		overlay.classList.add('active');
+		body.classList.add('scroll-lock');
+		modal.classList.add('active');
+
+		isModalActive = true;
+	}
+
+	function hide() {
+		overlay.classList.remove('active');
+		body.classList.remove('scroll-lock');
+		modal.classList.remove('active');
+
+		isModalActive = false;
+	}
+
+	triggers.forEach(trigger => {
+		trigger.addEventListener('click', show);
+	});
+
+	destroyers.forEach(destroyer => {
+		destroyer.addEventListener('click', hide);
+	});
+
+	modal.addEventListener('click', e => {
+		if (e.target === modal) hide();
+	});
+
+	window.addEventListener('keydown', e => {
+		if (isModalActive && e.key === 'Escape') hide();
+	});
+}
+
+modal('[data-modal="search-modal"]', '[data-trigger="search-modal"]');
