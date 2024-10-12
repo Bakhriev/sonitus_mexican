@@ -72,18 +72,25 @@ h3 {
 
 	@media screen and (max-width: 992px) {
 		font-size: 1.875rem;
-		line-height: normal;
 	}
 }
 
 h4 {
 	font-size: 1.875rem;
 	line-height: normal;
+
+	@media screen and (max-width: 992px) {
+		font-size: 1.625rem;
+	}
 }
 
 h5 {
 	font-size: 1.625rem;
 	line-height: normal;
+
+	@media screen and (max-width: 992px) {
+		font-size: 1.5rem;
+	}
 }
 
 h6 {
