@@ -8,6 +8,8 @@ const menuInit = () => {
 	});
 };
 
+menuInit();
+
 const tabInit = () => {
 	const tabNavs = document.querySelectorAll('.tab__nav button');
 	const tabItems = document.querySelectorAll('.tab__content .tab__item');
@@ -32,3 +34,13 @@ const tabInit = () => {
 };
 
 tabInit();
+
+const swiper = new Swiper('.swiper', {
+	slidesPerView: 'auto',
+	spaceBetween: 16,
+	// Navigation arrows
+	navigation: {
+		nextEl: '.slider-buttons__next',
+		prevEl: '.slider-buttons__prev',
+	},
+});

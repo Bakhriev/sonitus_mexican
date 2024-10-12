@@ -348,6 +348,7 @@
 }
 
 .advice {
+	overflow: hidden;
 	padding: 96px 0;
 
 	@media screen and (max-width: 992px) {
@@ -391,6 +392,10 @@
 	}
 
 	&__slider {
+		overflow: visible;
+		.swiper-slide {
+			width: 331px;
+		}
 	}
 
 	&__slider-buttons {
@@ -411,7 +416,16 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: #433b4e;
+		background-color: #4a1d80;
+
+		&.swiper-button-disabled {
+			background-color: #433b4e;
+			cursor: default;
+
+			&:active {
+				scale: 1;
+			}
+		}
 
 		&:active {
 			scale: 0.97;
@@ -529,7 +543,6 @@
 	border-radius: 20px;
 	padding: 40px 32px;
 	background-color: #fff;
-	width: 331px;
 
 	&__img-wrapper {
 	}
