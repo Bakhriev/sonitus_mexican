@@ -1,5 +1,5 @@
 .hero {
-	background-image: url('../img/hero-bg.png');
+	background-image: url('../img/hero-bg.jpg');
 	background-position: center bottom;
 	background-size: cover 630px;
 	background-repeat: no-repeat;
@@ -8,6 +8,7 @@
 		background-image: url('../img/hero-bg-mob.png');
 		background-size: 800px 263px;
 	}
+
 	&__content {
 		padding-top: 40px;
 

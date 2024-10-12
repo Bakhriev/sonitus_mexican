@@ -502,6 +502,10 @@
 		&.active {
 			color: #000;
 			border-color: #7547f0;
+
+			.tab__btn-icon {
+				color: #1673ff;
+			}
 		}
 	}
 
@@ -511,7 +515,8 @@
 		justify-content: center;
 		width: 30px;
 		height: 30px;
-		color: inherit;
+
+		color: #6e648e;
 	}
 
 	&__content {
