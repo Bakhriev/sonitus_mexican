@@ -195,6 +195,7 @@
 		font-size: 24px;
 		color: #aca8bf;
 		text-decoration: none;
+		line-height: normal;
 
 		@media screen and (max-width: 992px) {
 			font-size: 1.25rem;
@@ -626,6 +627,7 @@
 
 	opacity: 0;
 	visibility: hidden;
+
 	transition:
 		opacity 150ms ease-in-out,
 		visibility 150ms ease-in-out;
