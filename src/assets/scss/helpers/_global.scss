@@ -21,6 +21,15 @@ body {
 
 .main {
 	flex-grow: 1;
+
+	&--vertical-space {
+		padding: 96px 0;
+
+		@media screen and (max-width: 992px) {
+			padding: 48px 0;
+			padding-top: 20px;
+		}
+	}
 }
 
 .container {
