@@ -55,22 +55,33 @@ function modal(modalSelector, triggersSelector) {
 
 	let isModalActive = false;
 
+	let trap;
+	let currentTrigger;
+
 	if (!modal | !triggers.length | !destroyers) return;
 
-	function show() {
-		overlay.classList.add('active');
-		body.classList.add('scroll-lock');
+	function show(e) {
+		currentTrigger = e.currentTarget;
+
 		modal.classList.add('active');
 
 		isModalActive = true;
+
+		trap = focusTrap(modal);
 	}
 
-	function hide() {
-		overlay.classList.remove('active');
-		body.classList.remove('scroll-lock');
+	function hide(trigger) {
+		if (!isModalActive) return;
+
 		modal.classList.remove('active');
 
 		isModalActive = false;
+
+		// removeListener
+		trap();
+
+		// focus on leave
+		currentTrigger.focus();
 	}
 
 	triggers.forEach(trigger => {
@@ -89,5 +100,45 @@ function modal(modalSelector, triggersSelector) {
 		if (isModalActive && e.key === 'Escape') hide();
 	});
 }
+
+const focusTrap = parent => {
+	if (!parent) return;
+
+	const focusableSelectors = [
+		'button',
+		'a[href]',
+		'input',
+		'select',
+		'textarea',
+	];
+
+	const items = parent.querySelectorAll(focusableSelectors.join(','));
+
+	if (!items.length) return;
+
+	let index = 0;
+	items[index].focus();
+
+	const handleKeydown = e => {
+		if (e.key !== 'Tab') return;
+
+		e.preventDefault();
+
+		if (e.shiftKey) {
+			index = index === 0 ? items.length - 1 : index - 1;
+		} else {
+			index = index === items.length - 1 ? 0 : index + 1;
+		}
+
+		items[index].focus();
+	};
+
+	parent.addEventListener('keydown', handleKeydown);
+
+	// for cleanup
+	return () => {
+		parent.removeEventListener('keydown', handleKeydown);
+	};
+};
 
 modal('[data-modal="search-modal"]', '[data-trigger="search-modal"]');
