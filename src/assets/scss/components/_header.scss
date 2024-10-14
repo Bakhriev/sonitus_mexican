@@ -73,6 +73,7 @@
 			text-align: center;
 			min-height: 64px;
 			padding: 20px 0;
+			text-decoration: none;
 		}
 	}
 
@@ -100,6 +101,7 @@
 	}
 }
 
+.sub-menu,
 .menu {
 	// Reset list Start
 	margin: 0;
@@ -162,7 +164,7 @@
 		background-repeat: no-repeat;
 	}
 
-	.menu {
+	.sub-menu {
 		opacity: 0;
 		visibility: hidden;
 
@@ -196,7 +198,7 @@
 			display: none;
 		}
 
-		.menu {
+		.sub-menu {
 			position: static;
 			opacity: 1;
 			visibility: visible;
@@ -228,7 +230,7 @@
 
 .menu-item-has-children {
 	@include hover {
-		.menu {
+		.sub-menu {
 			opacity: 1;
 			visibility: visible;
 			transition-delay: 0ms;
