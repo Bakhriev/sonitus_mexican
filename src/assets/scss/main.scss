@@ -633,7 +633,8 @@
 
 	opacity: 0;
 	pointer-events: none;
-
+	backdrop-filter: blur(24px);
+	background: rgba(125, 103, 184, 0.6);
 	transition: opacity 150ms ease-in-out;
 
 	&.active {
